@@ -14,11 +14,12 @@ class Orders extends Component {
             .then(res => {
                 const fetchedOrders = [];
                 for(let key in res.data) {
+                    console.log('key: ' + key)
                     fetchedOrders.push({
                         ...res.data[key],
                         id: key
-
-                    })
+                    });
+                    console.log('...res.data[key]', res.data[key])
                 }
                 this.setState({loading: false, orders: fetchedOrders})
             })
